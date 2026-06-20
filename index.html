@@ -6,12 +6,19 @@
     <title>高中课程安排优化设计研究</title>
     <link rel="stylesheet" href="styles.css">
     <style>
-        .slides-container { position: relative; width: 100vw; height: 100vh; overflow: hidden; }
-        .slide-wrapper { position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; transition: opacity 0.5s ease-in-out; pointer-events: none; }
-        .slide-wrapper.active { opacity: 1; pointer-events: all; }
+        /* Loading state */
+        .loading-screen {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            display: flex; align-items: center; justify-content: center;
+            background: var(--bg-primary, #F8F7F4); z-index: 9999;
+            font-size: 24px; color: var(--text-muted, #8E8E93);
+        }
+        .loading-screen.hidden { display: none; }
     </style>
 </head>
 <body>
+    <div class="loading-screen" id="loadingScreen">加载中...</div>
+    
     <div class="progress-bar" id="progressBar"></div>
     <button class="page-nav-btn" id="pageNavBtn">页面</button>
     <button class="fullscreen-btn" id="fullscreenBtn" title="全屏 (F11)">
@@ -24,12 +31,12 @@
         <button class="page-sidebar-close" id="pageSidebarClose">×</button>
         <div class="page-sidebar-title">页面导航</div>
     </div>
-    <div class="slides-container" id="slidesContainer">
-        <!-- Slides will be loaded dynamically -->
-    </div>
-    <script src="script.js"></script>
+    
+    <div class="slides-container" id="slidesContainer"></div>
+
     <script>
-        const slideFiles = [
+        // Slide files to load
+        const SLIDE_FILES = [
             'slides/00-ready.html',
             'slides/01-cover.html',
             'slides/02-toc.html',
@@ -45,31 +52,39 @@
             'slides/12-thanks.html'
         ];
 
-        async function loadSlides() {
+        async function loadAllSlides() {
             const container = document.getElementById('slidesContainer');
             
-            for (let i = 0; i < slideFiles.length; i++) {
+            for (let i = 0; i < SLIDE_FILES.length; i++) {
                 try {
-                    const response = await fetch(slideFiles[i]);
+                    const response = await fetch(SLIDE_FILES[i]);
+                    if (!response.ok) throw new Error(`HTTP ${response.status}`);
                     const html = await response.text();
                     
                     const wrapper = document.createElement('div');
                     wrapper.className = 'slide-wrapper' + (i === 0 ? ' active' : '');
-                    wrapper.setAttribute('data-slide-index', i);
+                    wrapper.setAttribute('data-slide-index', i.toString());
                     wrapper.innerHTML = '<div class="slide">' + html + '</div>';
-                    
                     container.appendChild(wrapper);
-                } catch (error) {
-                    console.error('Failed to load ' + slideFiles[i] + ':', error);
+                } catch (err) {
+                    console.error(`Failed to load ${SLIDE_FILES[i]}:`, err);
                 }
             }
             
+            // Hide loading screen
+            document.getElementById('loadingScreen').classList.add('hidden');
+            
+            // Call initApp from script.js
             if (typeof initApp === 'function') {
                 initApp();
+            } else {
+                console.error('initApp function not found');
             }
         }
 
-        document.addEventListener('DOMContentLoaded', loadSlides);
+        // Load slides when DOM is ready
+        document.addEventListener('DOMContentLoaded', loadAllSlides);
     </script>
+    <script src="script.js"></script>
 </body>
 </html>
