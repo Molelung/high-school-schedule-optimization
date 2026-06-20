@@ -1,10 +1,47 @@
-<h2>结果分析</h2>
+<h2>研究方法</h2>
     
-    <!-- 第1组：时段偏好 - 进度条 -->
-    <div class="chart-group" id="chart-group-1" style="margin-top: 16px;">
-        <h3 style="text-align: center; font-size: 38px; color: var(--text-secondary); margin-bottom: 28px;">时段偏好</h3>
-        <div class="chart-body" style="gap: 48px;">
-            <!-- 理科 -->
-            <div style="flex: 1;">
-                <p style="font-size: 22px; color: var(--text-muted); margin-bottom: 14px; text-align: center;">理科上午偏好</p>
-                <div class="bar-item" data-value="87"><span class="bar-label">化学</span><div class="bar-track"><div class="bar-fill" style="background: var(--morandi-blue);">
+    <!-- 大泡泡 - 研究总体思路 -->
+    <div class="bubble-container">
+    <div class="main-bubble" id="main-bubble">
+        研究的总体思路是经过<span class="bg-highlight">大范围样本采集</span>和<span class="bg-highlight">多实验方法验证</span>，以<span class="bg-highlight">减小误差</span>
+    </div>
+    <!-- 装饰小泡泡（在main-bubble之后，sibling selector才能生效）-->
+    <div class="deco-bubble deco-1"></div>
+    <div class="deco-bubble deco-2"></div>
+    <div class="deco-bubble deco-3"></div>
+    <div class="deco-bubble deco-4"></div>
+    <div class="deco-bubble deco-5"></div>
+    <div class="deco-bubble deco-6"></div>
+        
+        <!-- 四个卡片 - 填充页面 -->
+        <div class="small-bubbles" id="small-bubbles">
+            <div class="small-bubble bubble-float-1" style="left: 1%; top: 1%; width: 48%; height: 50%;">
+                <strong style="font-size: 28px; color: var(--morandi-blue); display: block; margin-bottom: 16px; border-bottom: 2px solid var(--morandi-blue); padding-bottom: 12px;">①文献研究法</strong>
+                <p style="font-size: 24px; color: var(--text-secondary); line-height: 1.7;">通过查阅中国知网等学术数据库，系统梳理生物节律、认知负荷、学习迁移等五大理论基础及泰勒、林崇德等学者的已有研究，为问卷设计和访谈提纲提供理论依据，并找出现有研究中缺乏实证数据支撑的缺口。</p>
+            </div>
+            <div class="small-bubble bubble-float-2" style="left: 51%; top: 1%; width: 48%; height: 50%;">
+                <strong style="font-size: 28px; color: var(--morandi-green); display: block; margin-bottom: 16px; border-bottom: 2px solid var(--morandi-green); padding-bottom: 12px;">②问卷调查法</strong>
+                <p style="font-size: 24px; color: var(--text-secondary); line-height: 1.7;">线上通过问卷星回收86份，线下纸质发放约800份回收约160份（回收率20%），合计有效样本约246份。样本中高一占76.7%、物理类选科占86.0%，基本符合学校整体选科结构，能获取较广泛的统计规律。</p>
+            </div>
+            <div class="small-bubble bubble-float-3" style="left: 1%; top: 53%; width: 48%; height: 46%;">
+                <strong style="font-size: 28px; color: var(--morandi-pink); display: block; margin-bottom: 16px; border-bottom: 2px solid var(--morandi-pink); padding-bottom: 12px;">③实地考察法</strong>
+                <p style="font-size: 24px; color: var(--text-secondary); line-height: 1.7;">收集8个班级的完整周课表，按节次逐格录入编码，统计各学科在不同时段的分布频率、文理副科占比及连排情况等客观指标，以验证问卷中学生反映的问题是否真实存在于实际排课中。</p>
+            </div>
+            <div class="small-bubble bubble-float-4" style="left: 51%; top: 53%; width: 48%; height: 46%;">
+                <strong style="font-size: 28px; color: var(--morandi-orange); display: block; margin-bottom: 16px; border-bottom: 2px solid var(--morandi-orange); padding-bottom: 12px;">④访谈法</strong>
+                <p style="font-size: 24px; color: var(--text-secondary); line-height: 1.7;">课题小组寻找8名同学，围绕连排体验、最清醒/最困时段、上课效率与作业质量关联、重新排课设想等5个核心问题进行书面访谈，获取问卷无法捕捉的深层体验和个性化建议。</p>
+            </div>
+        </div>
+        
+        <!-- 便利贴 - 点击小泡泡后出现 -->
+        <div class="sticky-notes" id="sticky-notes">
+            <div class="sticky-note note-green sticky-float">
+                <div class="sticky-note-title">✦ 利</div>
+                <p>四种方法形成三角验证——文献研究提供理论框架，问卷提供统计广度，实地考察提供客观数据，访谈提供深度解释，定量与定性互补、主观感受与客观数据对照，增强了结论的可信度。</p>
+            </div>
+            <div class="sticky-note note-orange sticky-float">
+                <div class="sticky-note-title">✦ 弊</div>
+                <p>均为描述性方法，缺乏实验控制，无法建立严格的因果关系；线下问卷回收率仅20%，可能存在应答偏差；课表分析仅覆盖8个班级，访谈样本量较小。</p>
+            </div>
+        </div>
+    </div>

@@ -29,7 +29,6 @@
     </div>
     <script src="script.js"></script>
     <script>
-        // 动态加载slides
         const slideFiles = [
             'slides/00-ready.html',
             'slides/01-cover.html',
@@ -42,7 +41,8 @@
             'slides/08-discussion.html',
             'slides/09-conclusion.html',
             'slides/10-reflection.html',
-            'slides/11-defense.html'
+            'slides/11-defense.html',
+            'slides/12-thanks.html'
         ];
 
         async function loadSlides() {
@@ -56,21 +56,19 @@
                     const wrapper = document.createElement('div');
                     wrapper.className = 'slide-wrapper' + (i === 0 ? ' active' : '');
                     wrapper.setAttribute('data-slide-index', i);
-                    wrapper.innerHTML = `<div class="slide">${html}</div>`;
+                    wrapper.innerHTML = '<div class="slide">' + html + '</div>';
                     
                     container.appendChild(wrapper);
                 } catch (error) {
-                    console.error(`Failed to load ${slideFiles[i]}:`, error);
+                    console.error('Failed to load ' + slideFiles[i] + ':', error);
                 }
             }
             
-            // 初始化事件监听器
             if (typeof initApp === 'function') {
                 initApp();
             }
         }
 
-        // 页面加载完成后初始化
         document.addEventListener('DOMContentLoaded', loadSlides);
     </script>
 </body>

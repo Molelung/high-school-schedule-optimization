@@ -1,18 +1,150 @@
-<h2>结果讨论</h2>
+<h2>结果分析</h2>
     
-    <!-- 小人已删除 -->
-    
-    <!-- 飞出的卡片容器 -->
-    <div id="card-stage"></div>
-    
-    <!-- 最终大卡片 -->
-    <div class="final-card" id="final-card">
-        <h3 style="text-align: center; font-size: 28px; margin-bottom: 24px; color: var(--accent-color);">交叉验证总结</h3>
-        <div style="margin-bottom: 20px;">
-            <p><strong>①假设具有科学性：</strong>研究前已系统梳理五大理论框架，假设本身就是基于成熟理论推导出来的，而非凭直觉猜测。比如"数理应安排上午"直接来自生物节律理论，"避免同科连堂"来自认知负荷理论——假设和文献天然就是一致的。</p>
+    <!-- 第1组：时段偏好 - 进度条 -->
+    <div class="chart-group" id="chart-group-1" style="margin-top: 16px;">
+        <h3 style="text-align: center; font-size: 38px; color: var(--text-secondary); margin-bottom: 28px;">时段偏好</h3>
+        <div class="chart-body" style="gap: 48px;">
+            <!-- 理科 -->
+            <div style="flex: 1;">
+                <p style="font-size: 22px; color: var(--text-muted); margin-bottom: 14px; text-align: center;">理科上午偏好</p>
+                <div class="bar-item" data-value="87"><span class="bar-label">化学</span><div class="bar-track"><div class="bar-fill" style="background: var(--morandi-blue);"></div></div><span class="bar-pct">87%</span></div>
+                <div class="bar-item" data-value="77"><span class="bar-label">生物</span><div class="bar-track"><div class="bar-fill" style="background: var(--morandi-green);"></div></div><span class="bar-pct">77%</span></div>
+                <div class="bar-item" data-value="75"><span class="bar-label">物理</span><div class="bar-track"><div class="bar-fill" style="background: var(--morandi-blue);"></div></div><span class="bar-pct">75%</span></div>
+                <div class="bar-item" data-value="71"><span class="bar-label">数学</span><div class="bar-track"><div class="bar-fill" style="background: var(--morandi-green);"></div></div><span class="bar-pct">71%</span></div>
+            </div>
+            <!-- 文科 -->
+            <div style="flex: 1;">
+                <p style="font-size: 22px; color: var(--text-muted); margin-bottom: 14px; text-align: center;">文科</p>
+                <div class="bar-item" data-value="42"><span class="bar-label">语文</span><div class="bar-track"><div class="bar-fill" style="background: var(--morandi-pink);"></div></div><span class="bar-pct">42%</span></div>
+                <div class="bar-item" data-value="28"><span class="bar-label">英语</span><div class="bar-track"><div class="bar-fill" style="background: var(--morandi-pink);"></div></div><span class="bar-pct">28%</span></div>
+                <div class="bar-item" data-value="38"><span class="bar-label">历史</span><div class="bar-track"><div class="bar-fill" style="background: var(--morandi-orange);"></div></div><span class="bar-pct">38%</span></div>
+                <div class="bar-item" data-value="21"><span class="bar-label">政治</span><div class="bar-track"><div class="bar-fill" style="background: var(--morandi-orange);"></div></div><span class="bar-pct">21%</span></div>
+                <div class="bar-item" data-value="20"><span class="bar-label">地理</span><div class="bar-track"><div class="bar-fill" style="background: var(--morandi-orange);"></div></div><span class="bar-pct">20%</span></div>
+            </div>
         </div>
-        <div style="margin-bottom: 20px;">
-            <p><strong>②理论本身具有普适性：</strong>这些理论（生物节律、认知负荷等）源于大量前人实证研究，描述的是人类认知的普遍规律。深圳中学学生自然也受这些规律支配。我们的数据反映的是同一个底层机制在深中这个具体场景中的表现。</p>
+        <div class="chart-footer">
+            <p style="font-size: 20px; color: var(--text-muted);">数理类71%-87%选择上午，语文42%、英语28%</p>
         </div>
-        <div>
-            <p><strong>③但也要诚实说明局限：</strong>我们的问卷设计本身就参照了文献框架，问题设置可能天然倾向于得到与理论一致的回答（引导性）。这是描述性研究的固有局限——我们能证明相关性，但无法像控制实验那样严格证明因果关系。</p>
+    </div>
+    
+    <!-- 第2组：专注度分布 - 柱状图 -->
+    <div class="chart-group" id="chart-group-2" style="display: none; margin-top: 16px;">
+        <h3 style="text-align: center; font-size: 38px; color: var(--text-secondary); margin-bottom: 28px;">专注度分布</h3>
+        <div class="chart-body" style="gap: 48px;">
+            <!-- 最不专注 -->
+            <div style="flex: 1;">
+                <p style="font-size: 22px; color: var(--text-muted); margin-bottom: 20px; text-align: center;">最不专注时段</p>
+                <div class="col-chart">
+                    <div class="col-item" data-value="41.9"><div class="col-bar-wrap"><div class="col-bar" style="background: var(--morandi-pink);"></div></div><span class="col-label">上午第一节</span><span class="col-pct">41.9%</span></div>
+                    <div class="col-item" data-value="14.0"><div class="col-bar-wrap"><div class="col-bar" style="background: var(--morandi-pink);"></div></div><span class="col-label">上午第二节</span><span class="col-pct">14.0%</span></div>
+                    <div class="col-item" data-value="11.6"><div class="col-bar-wrap"><div class="col-bar" style="background: var(--morandi-pink);"></div></div><span class="col-label">下午第六节</span><span class="col-pct">11.6%</span></div>
+                    <div class="col-item" data-value="32.5"><div class="col-bar-wrap"><div class="col-bar" style="background: var(--morandi-pink);"></div></div><span class="col-label">其他</span><span class="col-pct">32.5%</span></div>
+                </div>
+            </div>
+            <!-- 最专注 -->
+            <div style="flex: 1;">
+                <p style="font-size: 22px; color: var(--text-muted); margin-bottom: 20px; text-align: center;">最专注时段</p>
+                <div class="col-chart">
+                    <div class="col-item" data-value="23.3"><div class="col-bar-wrap"><div class="col-bar" style="background: var(--morandi-green);"></div></div><span class="col-label">第五节</span><span class="col-pct">23.3%</span></div>
+                    <div class="col-item" data-value="16"><div class="col-bar-wrap"><div class="col-bar" style="background: var(--morandi-green);"></div></div><span class="col-label">第一节</span><span class="col-pct">16%</span></div>
+                    <div class="col-item" data-value="16"><div class="col-bar-wrap"><div class="col-bar" style="background: var(--morandi-green);"></div></div><span class="col-label">第三节</span><span class="col-pct">16%</span></div>
+                    <div class="col-item" data-value="16"><div class="col-bar-wrap"><div class="col-bar" style="background: var(--morandi-green);"></div></div><span class="col-label">第四节</span><span class="col-pct">16%</span></div>
+                </div>
+            </div>
+        </div>
+        <div class="chart-footer">
+            <p style="font-size: 20px; color: var(--text-muted);">上午第一节最不专注(41.9%)，第五节最专注(23.3%)</p>
+        </div>
+    </div>
+    
+    <!-- 第3组：连排效果 + 课表均衡性 + 主副科穿插 - 环状图 -->
+    <div class="chart-group" id="chart-group-3" style="display: none; margin-top: 16px;">
+        <div class="chart-body" style="gap: 24px;">
+            <!-- 左：连排效果 -->
+            <div style="flex: 1.2;">
+                <h3 style="text-align: center; font-size: 32px; color: var(--text-secondary); margin-bottom: 16px;">连排效果</h3>
+                <div style="display: flex; gap: 16px; justify-content: center; align-items: flex-start;">
+                    <!-- 异科理科联排 -->
+                    <div class="ring-chart-item">
+                        <p style="font-size: 20px; color: var(--text-muted); margin-bottom: 10px;">异科理科联排</p>
+                        <svg class="ring-chart-svg" viewBox="0 0 180 180">
+                            <circle class="ring-bg" cx="90" cy="90" r="70"/>
+                            <circle class="ring-fill" cx="90" cy="90" r="70" data-value="66" style="stroke: var(--morandi-green);" stroke-dashoffset="439.82"/>
+                            <circle class="ring-fill" cx="90" cy="90" r="70" data-value="33" style="stroke: var(--morandi-pink); stroke-dashoffset="502.65;" data-rotate="66"/>
+                        </svg>
+                        <div class="ring-center-text">66%</div>
+                        <div class="ring-label">认为有利</div>
+                        <div class="ring-legend">
+                            <div class="ring-legend-item"><div class="ring-legend-dot" style="background: var(--morandi-green);"></div>好 66%</div>
+                            <div class="ring-legend-item"><div class="ring-legend-dot" style="background: var(--morandi-pink);"></div>犯困 33%</div>
+                        </div>
+                    </div>
+                    <!-- 同科连堂 -->
+                    <div class="ring-chart-item">
+                        <p style="font-size: 20px; color: var(--text-muted); margin-bottom: 10px;">同科连堂</p>
+                        <svg class="ring-chart-svg" viewBox="0 0 180 180">
+                            <circle class="ring-bg" cx="90" cy="90" r="70"/>
+                            <circle class="ring-fill" cx="90" cy="90" r="70" data-value="9.3" style="stroke: var(--morandi-green);" stroke-dashoffset="439.82"/>
+                            <circle class="ring-fill" cx="90" cy="90" r="70" data-value="46.5" style="stroke: var(--morandi-blue);" stroke-dashoffset="502.65;" data-rotate="9.3"/>
+                            <circle class="ring-fill" cx="90" cy="90" r="70" data-value="44.2" style="stroke: var(--morandi-pink);" stroke-dashoffset="502.65;" data-rotate="55.8"/>
+                        </svg>
+                        <div class="ring-center-text">9.3%</div>
+                        <div class="ring-label">认为有利</div>
+                        <div class="ring-legend">
+                            <div class="ring-legend-item"><div class="ring-legend-dot" style="background: var(--morandi-green);"></div>有利 9.3%</div>
+                            <div class="ring-legend-item"><div class="ring-legend-dot" style="background: var(--morandi-blue);"></div>一般 46.5%</div>
+                            <div class="ring-legend-item"><div class="ring-legend-dot" style="background: var(--morandi-pink);"></div>疲劳 44.2%</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 中：课表均衡性 -->
+            <div style="flex: 1; padding-top: 48px;">
+                <h3 style="text-align: center; font-size: 32px; color: var(--text-secondary); margin-bottom: 16px;">课表均衡性</h3>
+                <div style="display: flex; justify-content: center;">
+                    <div class="ring-chart-item">
+                        <svg class="ring-chart-svg" viewBox="0 0 180 180">
+                            <circle class="ring-bg" cx="90" cy="90" r="70"/>
+                            <circle class="ring-fill" cx="90" cy="90" r="70" data-value="13.9" style="stroke: var(--morandi-green);" stroke-dashoffset="439.82"/>
+                            <circle class="ring-fill" cx="90" cy="90" r="70" data-value="60.5" style="stroke: var(--morandi-orange);" stroke-dashoffset="502.65;" data-rotate="13.9"/>
+                            <circle class="ring-fill" cx="90" cy="90" r="70" data-value="25.6" style="stroke: var(--morandi-pink);" stroke-dashoffset="502.65;" data-rotate="74.4"/>
+                        </svg>
+                        <div class="ring-center-text" style="font-size: 28px;">2.09分</div>
+                        <div class="ring-label" style="font-size: 17px;">平均满意度（满分5分）</div>
+                        <div class="ring-legend">
+                            <div class="ring-legend-item"><div class="ring-legend-dot" style="background: var(--morandi-green);"></div>很均衡 13.9%</div>
+                            <div class="ring-legend-item"><div class="ring-legend-dot" style="background: var(--morandi-orange);"></div>能接受 60.5%</div>
+                            <div class="ring-legend-item"><div class="ring-legend-dot" style="background: var(--morandi-pink);"></div>极端不均衡 25.6%</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 右：主副科穿插 -->
+            <div style="flex: 0.8; padding-top: 48px;">
+                <h3 style="text-align: center; font-size: 32px; color: var(--text-secondary); margin-bottom: 16px;">主副科穿插</h3>
+                <div style="display: flex; justify-content: center;">
+                    <div class="ring-chart-item">
+                        <svg class="ring-chart-svg" viewBox="0 0 180 180">
+                            <circle class="ring-bg" cx="90" cy="90" r="70"/>
+                            <circle class="ring-fill" cx="90" cy="90" r="70" data-value="11.6" style="stroke: var(--morandi-green);" stroke-dashoffset="439.82"/>
+                            <circle class="ring-fill" cx="90" cy="90" r="70" data-value="60.5" style="stroke: var(--morandi-blue);" stroke-dashoffset="439.82;" data-rotate="11.6"/>
+                        </svg>
+                        <div class="ring-center-text" style="font-size: 26px;">72.1%</div>
+                        <div class="ring-label" style="font-size: 16px;">整体满意度</div>
+                        <div class="ring-legend">
+                            <div class="ring-legend-item"><div class="ring-legend-dot" style="background: var(--morandi-green);"></div>非常满意 11.6%</div>
+                            <div class="ring-legend-item"><div class="ring-legend-dot" style="background: var(--morandi-blue);"></div>比较满意 60.5%</div>
+                        </div>
+                        <p style="font-size: 16px; color: var(--morandi-pink); margin-top: 12px; text-align: center;">23.3%认为应增加副科时间</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="chart-footer">
+            <p style="font-size: 20px; color: var(--text-muted);">66%支持异科联排，72.1%满意穿插安排</p>
+        </div>
+    </div>
+    
+    <div class="chart-nav-hint" id="chart-nav-hint" style="text-align: center; margin-top: 20px; font-size: 18px; color: var(--text-muted); min-height: 24px;">点击切换下一组</div>
