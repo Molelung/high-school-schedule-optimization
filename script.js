@@ -1,8 +1,7 @@
 let currentSlide = 0;
         let isAnimating = false;
         let slideElements = [];
-        
-        
+
 function initApp() {
 
             slideElements = document.querySelectorAll('.slide-wrapper');
@@ -16,9 +15,7 @@ function initApp() {
                 item.textContent = (index + 1) + '. ' + name;
                 item.addEventListener('click', () => jumpToSlide(index));
                 sidebar.appendChild(item);
-            
-}
-
+            });
             
             // 给所有slide添加几何装饰元素
             document.querySelectorAll('.slide').forEach(slide => {
@@ -32,9 +29,9 @@ function initApp() {
             
             setupEventListeners();
             updateUI();
-        });
-        
-        // 跳转到指定页面并重置动画
+}
+
+// 跳转到指定页面并重置动画
         function jumpToSlide(index) {
             // 重置所有动画状态
             resetAnimations();
