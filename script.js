@@ -1,9 +1,8 @@
 let currentSlide = 0;
         let isAnimating = false;
         let slideElements = [];
-
-function initApp() {
-
+        
+        document.addEventListener('DOMContentLoaded', function() {
             slideElements = document.querySelectorAll('.slide-wrapper');
             
             // 生成页面导航列表
@@ -29,9 +28,9 @@ function initApp() {
             
             setupEventListeners();
             updateUI();
-}
-
-// 跳转到指定页面并重置动画
+        });
+        
+        // 跳转到指定页面并重置动画
         function jumpToSlide(index) {
             // 重置所有动画状态
             resetAnimations();
@@ -51,10 +50,10 @@ function initApp() {
             const cursorEl = document.getElementById('typing-cursor');
             if (textEl) textEl.textContent = '';
             if (cursorEl) cursorEl.style.display = 'inline-block';
-            document.getElementById('slide-info').style.opacity = '0';
-            document.getElementById('slide-info').style.transform = 'translateX(-50px)';
-            document.getElementById('slide-members').style.opacity = '0';
-            document.getElementById('slide-members').style.transform = 'translateX(50px)';
+            const slideInfo = document.getElementById('slide-info');
+            const slideMembers = document.getElementById('slide-members');
+            if (slideInfo) { slideInfo.style.opacity = '0'; slideInfo.style.transform = 'translateX(-50px)'; }
+            if (slideMembers) { slideMembers.style.opacity = '0'; slideMembers.style.transform = 'translateX(50px)'; }
             
             // 重置目录页
             tocClickCount = 0;
@@ -72,13 +71,16 @@ function initApp() {
             // 重置文献综述页
             bookPageIndex = 0;
             bookComplete = false;
-            document.getElementById('book-nav-hint').textContent = '点击翻页';
+            const bookHint = document.getElementById('book-nav-hint');
+            if (bookHint) bookHint.textContent = '点击翻页';
             
             // 重置研究问题页
             qStep = 0;
             qComplete = false;
-            document.getElementById('main-question').classList.remove('drop', 'split');
-            document.getElementById('sub-questions').classList.remove('show');
+            const mainQ = document.getElementById('main-question');
+            const subQ = document.getElementById('sub-questions');
+            if (mainQ) mainQ.classList.remove('drop', 'split');
+            if (subQ) subQ.classList.remove('show');
             
             // 重置研究方法页泡泡
             bubbleStep = 0;
@@ -114,10 +116,8 @@ function initApp() {
             discussAnimating = false;
             currentResultCard = null;
             currentEvidenceCard = null;
-            const bean = document.getElementById('bean');
             const cardStage = document.getElementById('card-stage');
             const finalCard = document.getElementById('final-card');
-            if (bean) bean.classList.remove('bean-exit');
             if (cardStage) cardStage.innerHTML = '';
             if (finalCard) finalCard.classList.remove('show');
             
@@ -340,19 +340,10 @@ function initApp() {
         let currentResultCard = null;
         let currentEvidenceCard = null;
         
-        function mouthOpen() {
-            const mouth = document.getElementById('bean-mouth-svg');
-            if (mouth) { 
-                mouth.setAttribute('ry', '12'); 
-                setTimeout(() => { mouth.setAttribute('ry', '4'); }, 300); 
-            }
-        }
-        
         function handleDiscussClick() {
             if (currentSlide !== 8 || discussComplete || discussAnimating) return;
             
             const stage = document.getElementById('card-stage');
-            const bean = document.getElementById('bean');
             const finalCard = document.getElementById('final-card');
             
             if (discussGroup < 4) {
@@ -361,7 +352,6 @@ function initApp() {
                 
                 if (discussPhase === 0) {
                     // 吐出结果卡
-                    mouthOpen();
                     currentResultCard = document.createElement('div');
                     currentResultCard.className = 'fly-card result-card';
                     currentResultCard.textContent = data.result;
@@ -371,7 +361,6 @@ function initApp() {
                 } else if (discussPhase === 1) {
                     // 上一张消失 + 吐出证据卡
                     if (currentResultCard) { currentResultCard.style.opacity = '0'; currentResultCard.style.transition = 'opacity 0.3s'; }
-                    mouthOpen();
                     currentEvidenceCard = document.createElement('div');
                     currentEvidenceCard.className = 'fly-card evidence-card';
                     currentEvidenceCard.textContent = data.evidence;
@@ -407,7 +396,6 @@ function initApp() {
                 // 最终卡片
                 discussComplete = true;
                 discussAnimating = true;
-                bean.classList.add('bean-exit');
                 setTimeout(() => {
                     finalCard.classList.add('show');
                     discussAnimating = false;

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&display=swap');
+
 :root {
             --bg-primary: #F8F7F4;
             --bg-secondary: #F0EDE8;
@@ -95,7 +97,6 @@
         .page-sidebar-item:hover { background: var(--bg-secondary); color: var(--text-primary); }
         .page-sidebar-item.active { background: var(--accent-color); color: white; font-weight: bold; }
         .page-sidebar-close { position: absolute; top: 16px; right: 16px; background: none; border: none; font-size: 24px; cursor: pointer; color: var(--text-muted); }
-        @import url('https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&display=swap');
         .ready-text { font-family: 'Ma Shan Zheng', 'STXingkai', 'FZShuTi', cursive; font-size: 120px; color: var(--text-primary); letter-spacing: 20px; }
         .loading-text { font-family: 'Ma Shan Zheng', 'STXingkai', 'FZShuTi', cursive; font-size: var(--text-xl); color: var(--text-muted); animation: blink 1.2s ease-in-out infinite; margin-top: 0; }
         @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.2; } }
