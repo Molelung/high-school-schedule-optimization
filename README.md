@@ -39,7 +39,15 @@
 
 ## 部署
 
-本项目已部署到 GitHub Pages。
+本项目已迁移到 **Cloudflare Pages**，正式访问地址：
+
+- **新地址（推荐）**：<https://hs-schedule.mokelin.cn>
+- Cloudflare Pages 项目：`hs-schedule`（产物即仓库根目录：`index.html`、`styles.css`、`script.js`、`slides/`，无构建步骤）
+- 原 GitHub Pages 地址 `https://molelung.github.io/high-school-schedule-optimization/` 已于 2026-10-18 停止服务（GitHub Pages 已关闭）
+
+## 迁移记录
+
+- 2026-10-18：由 GitHub Pages 迁移至 Cloudflare Pages，静态产物与原仓库根目录完全一致；后续更新只需重新上传根目录文件。
 
 ## 作者
 
